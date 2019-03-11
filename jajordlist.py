@@ -80,4 +80,5 @@ wordlistfinal = wordlistupperlower+wordlistupperlowerwithnumber+wordlistupperlow
 outputfile = open('jajesult.txt', 'w+')
 for current in wordlistfinal:
 	outputfile.write(current+'\n')
+	outputfile.write(current+'!\n')
 outputfile.close()
