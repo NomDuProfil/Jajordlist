@@ -57,23 +57,37 @@ wordlistupperlowernumberandchar = []
 
 for current in wordlistupperlowerwithnumber:
 	wordlistupperlowernumberandchar.append(current.replace('a', '@'))
+	wordlistupperlowernumberandchar.append(current.replace('a', '@', 1))
 	wordlistupperlowernumberandchar.append(current.replace('o', '0'))
+	wordlistupperlowernumberandchar.append(current.replace('o', '0', 1))
 	wordlistupperlowernumberandchar.append(current.replace('e', '3'))
+	wordlistupperlowernumberandchar.append(current.replace('e', '3', 1))
 	wordlistupperlowernumberandchar.append(current.replace('a', '@').replace('o', '0').replace('e', '3'))
+	wordlistupperlowernumberandchar.append(current.replace('a', '@', 1).replace('o', '0', 1).replace('e', '3', 1))
 	wordlistupperlowernumberandchar.append(current.replace('a', '@').replace('o', '0'))
+	wordlistupperlowernumberandchar.append(current.replace('a', '@', 1).replace('o', '0', 1))
 	wordlistupperlowernumberandchar.append(current.replace('a', '@').replace('e', '3'))
+	wordlistupperlowernumberandchar.append(current.replace('a', '@', 1).replace('e', '3', 1))
 	wordlistupperlowernumberandchar.append(current.replace('o', '0').replace('e', '3'))
+	wordlistupperlowernumberandchar.append(current.replace('o', '0', 1).replace('e', '3', 1))
 
 wordlistupperlowerandchar = []
 
 for current in wordlistupperlower:
 	wordlistupperlowerandchar.append(current.replace('a', '@'))
+	wordlistupperlowerandchar.append(current.replace('a', '@', 1))
 	wordlistupperlowerandchar.append(current.replace('o', '0'))
+	wordlistupperlowerandchar.append(current.replace('o', '0', 1))
 	wordlistupperlowerandchar.append(current.replace('e', '3'))
+	wordlistupperlowerandchar.append(current.replace('e', '3', 1))
 	wordlistupperlowerandchar.append(current.replace('a', '@').replace('o', '0').replace('e', '3'))
+	wordlistupperlowerandchar.append(current.replace('a', '@', 1).replace('o', '0', 1).replace('e', '3', 1))
 	wordlistupperlowerandchar.append(current.replace('a', '@').replace('o', '0'))
+	wordlistupperlowerandchar.append(current.replace('a', '@', 1).replace('o', '0', 1))
 	wordlistupperlowerandchar.append(current.replace('a', '@').replace('e', '3'))
+	wordlistupperlowerandchar.append(current.replace('a', '@', 1).replace('e', '3', 1))
 	wordlistupperlowerandchar.append(current.replace('o', '0').replace('e', '3'))
+	wordlistupperlowerandchar.append(current.replace('o', '0', 1).replace('e', '3', 1))
 
 wordlistfinal = wordlistupperlower+wordlistupperlowerwithnumber+wordlistupperlowernumberandchar+wordlistupperlowerandchar
 
