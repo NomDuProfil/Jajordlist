@@ -45,17 +45,28 @@ if numberbefore > 0:
 			wordlistupperlowerwithnumber.append(str(i)+current)
 
 if numberafter > 0:
-	numberafter = numberafter*"9"
 	formatwithzero = "{:0"+str(numberafter)+"d}"
+	numberafter = numberafter*"9"
 	for i in range(int(numberafter)+1):
 		for current in wordlistupperlower:
-			wordlistupperlowerwithnumber.append(current+str(i))
 			if len(str(i)) < len(str(numberafter)):
-				wordlistupperlowerwithnumber.append(formatwithzero.format(i)+current)
+				wordlistupperlowerwithnumber.append(current+formatwithzero.format(i))
+			wordlistupperlowerwithnumber.append(current+str(i))
+
+wordlistupperlowernumberandchar = []
+
+for current in wordlistupperlowerwithnumber:
+	wordlistupperlowernumberandchar.append(current.replace('a', '@'))
+	wordlistupperlowernumberandchar.append(current.replace('o', '0'))
+	wordlistupperlowernumberandchar.append(current.replace('e', '3'))
+	wordlistupperlowernumberandchar.append(current.replace('a', '@').replace('o', '0').replace('e', '3'))
+	wordlistupperlowernumberandchar.append(current.replace('a', '@').replace('o', '0'))
+	wordlistupperlowernumberandchar.append(current.replace('a', '@').replace('e', '3'))
+	wordlistupperlowernumberandchar.append(current.replace('o', '0').replace('e', '3'))
 
 wordlistupperlowerandchar = []
 
-for current in wordlistupperlowerwithnumber:
+for current in wordlistupperlower:
 	wordlistupperlowerandchar.append(current.replace('a', '@'))
 	wordlistupperlowerandchar.append(current.replace('o', '0'))
 	wordlistupperlowerandchar.append(current.replace('e', '3'))
@@ -64,9 +75,9 @@ for current in wordlistupperlowerwithnumber:
 	wordlistupperlowerandchar.append(current.replace('a', '@').replace('e', '3'))
 	wordlistupperlowerandchar.append(current.replace('o', '0').replace('e', '3'))
 
-wordlistfinal = wordlistupperlower+wordlistupperlowerwithnumber+wordlistupperlowerandchar
+wordlistfinal = wordlistupperlower+wordlistupperlowerwithnumber+wordlistupperlowernumberandchar+wordlistupperlowerandchar
 
-outputfile = open('jajordlist.txt', 'w+')
+outputfile = open('jajesult.txt', 'w+')
 for current in wordlistfinal:
 	outputfile.write(current+'\n')
 outputfile.close()
