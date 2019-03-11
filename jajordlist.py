@@ -1,9 +1,34 @@
 from itertools import product
+import argparse, sys
 
-basicword = "abcde"
+parser = argparse.ArgumentParser()
+parser.add_argument("-b", "--base", help="Mot de base pour la generation. Exemple : \"entreprise\"", required=True)
+parser.add_argument("--numberbefore", help="Nombre de numero avant le mot de base")
+parser.add_argument("--numberafter", help="Nombre de numero apres le mot de base")
 
-numberbefore = 4
+args = parser.parse_args()
+
+if not len(sys.argv) > 1:
+	parser.print_help()
+	sys.exit(1)
+
+basicword = args.base
+
+numberbefore = 0
 numberafter = 0
+
+if args.numberbefore is not None:
+	if args.numberbefore.isdigit():
+		numberbefore = int(args.numberbefore)
+	else:
+		print "L argument \"numberbefore\" doit etre un chiffre"
+		sys.exit(1)
+if args.numberafter is not None:
+	if args.numberafter.isdigit():
+		numberafter = int(args.numberafter)
+	else:
+		print "L argument \"numberafter\" doit etre un chiffre"
+		sys.exit(1)
 
 wordlistfinal = []
 
