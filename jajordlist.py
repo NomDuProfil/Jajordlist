@@ -23,6 +23,8 @@ letters_mapping = {
     '9': ['9']
 }
 
+end_char = ['!', '$']
+
 def generate_map(basic, word):
     dict_final = {}
     for current_char in word:
@@ -67,16 +69,15 @@ if args.numberafter is not None:
 
 mapping_generation = generate_map(letters_mapping, basicword)
 
-start_list = [basicword, basicword+'!']
+start_list = []
 outputfile = open('jajesult.txt', 'w+')
-outputfile.write(basicword+'\n')
-outputfile.write(basicword+'!\n')
 
 for current_result in list(dict.fromkeys(list(pw_vars(basicword, mapping_generation)))):
     outputfile.write(current_result+'\n')
-    outputfile.write(current_result+'!\n')
     start_list.append(current_result)
-    start_list.append(current_result+'!')
+    for current_end in end_char:
+        outputfile.write(current_result+current_end+'\n')
+        start_list.append(current_result+current_end)
 
 if numberbefore > 0:
     formatwithzero = "{:0"+str(numberbefore)+"d}"
@@ -87,7 +88,8 @@ if numberbefore > 0:
                 outputfile.write(formatwithzero.format(i)+current+'\n')
                 outputfile.write(formatwithzero.format(i)+current+'!\n')
             outputfile.write(str(i)+current+'\n')
-            outputfile.write(str(i)+current+'!\n')
+            for current_end in end_char:
+                outputfile.write(str(i)+current+current_end+'\n')
 
 if numberafter > 0:
     formatwithzero = "{:0"+str(numberafter)+"d}"
@@ -98,7 +100,8 @@ if numberafter > 0:
                 outputfile.write(current+formatwithzero.format(i)+'\n')
                 outputfile.write(current+formatwithzero.format(i)+'!\n')
             outputfile.write(current+str(i)+'\n')
-            outputfile.write(current+str(i)+'!\n')
+            for current_end in end_char:
+                outputfile.write(current+str(i)+current_end+'\n')
 
 outputfile.close()
 
